@@ -52,6 +52,20 @@ services:
     depends_on:
       - elasticsearch
 
+  filebeat:
+    build:
+      context: filebeat/
+      args:
+        ELK_VERSION: 7.9.3
+    user: root
+    volumes:
+      - /var/lib/docker:/var/lib/docker:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
   kibana:
     build:
       context: kibana/

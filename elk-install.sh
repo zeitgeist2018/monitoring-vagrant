@@ -40,4 +40,4 @@ docker-compose --version
 cd /home/vagrant/elk
 docker-compose -f docker-compose.yml \
                -f extensions/logspout/docker-compose.yml \
-               -d up
+               up -d
